@@ -12,7 +12,7 @@
 
 #### 安装 VSCode 2015
 
-到 [http://blog.postcha.com/read/66](http://blog.postcha.com/read/66) 下载 VSCode 专业版，自定义安装，一定要勾选 VC ++，然后一直下一步，大约两个小时装完。
+到 [http://blog.postcha.com/read/66](http://blog.postcha.com/read/66) 下载 VSCode 专业版，自定义安装，一定要勾选 VC ++，然后一直下一步，大约一个小时装完。
 
 #### 安装 Qt 5.9
 
@@ -28,11 +28,11 @@
 
 #### 安装 Python 2
 
-右键解压，不要安装，因为我用到 Python 3，不想冲突
+到 https://www.python.org/downloads/ 下载安装 Python 2.7
 
 #### 安装 OpenSSL
 
-下载并安装 [Win 32 OpenSSL 1.0.x](https://slproweb.com/products/Win32OpenSSL.html) 
+下载并安装 [Win 32 OpenSSL 1.0.x](https://slproweb.com/products/Win32OpenSSL.html) 版本
 
 ### 编译 Redis Desktop Manager
 
@@ -60,7 +60,7 @@ cmake --build build --config "Release"
 
 ```powershell
 cd D:\redisdesktopmanager
-set APPVEYOR_BUILD_VERSION=0.9.4.1055
+set VERSION=0.9.4.1055
 "D:\Program Files\Python\python27\python.exe" ./build/utils/set_version.py %APPVEYOR_BUILD_VERSION% > ./src/version.h
 "D:\Program Files\Python\python27\python.exe" ./build/utils/set_version.py %APPVEYOR_BUILD_VERSION% > ./3rdparty/crashreporter/src/version.h
 ```
@@ -95,7 +95,7 @@ rmdir /S /Q .\QtGraphicalEffects
 del /Q  .\imageformats\qtiff.dll
 del /Q  .\imageformats\qwebp.dll
 cd D:\redisdesktopmanager
-call "C:\\Program Files (x86)\\NSIS\\makensis.exe" /V1 /DVERSION=0.9.4.1055  ./build/windows/installer/installer.nsi
+call "C:\\Program Files (x86)\\NSIS\\makensis.exe" /V1 /DVERSION=$VERSION  ./build/windows/installer/installer.nsi
 ```
 
 打包后的文件：`D:\redisdesktopmanager\build\windows\installer\redis-desktop-manager-0.9.4.1055.exe`
